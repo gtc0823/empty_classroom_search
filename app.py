@@ -24,7 +24,7 @@ def search_classroom():
     classroom = data.get("classroom", "").strip()
 
     # 查詢條件，使用 LIKE 來模糊匹配 class_time 和 classroom
-    query = "SELECT * FROM classrooms WHERE class_time LIKE %s AND class_time LIKE %s"
+    query = "SELECT * FROM all_classes WHERE class_time LIKE %s AND class_time LIKE %s"
     values = [f"%{weekday}%",f"%{time_slot}%"]  # 使用 LIKE 來匹配 class_time 中包含 weekday 和 time_slot 的部分
     # 如果提供了 classroom，也使用 LIKE 進行模糊匹配
     if classroom:
@@ -42,7 +42,7 @@ def search_classroom():
         }
     else:
         # 如果沒有找到資料，查詢該天所有資料並設置 find = 0
-        query = "SELECT * FROM classrooms WHERE class_time LIKE %s"
+        query = "SELECT * FROM all_classes WHERE class_time LIKE %s"
         values = [f"%{weekday}%"]  # 只根據 weekday 查詢，返回該天的所有資料
         if classroom:
             query += " AND classroom LIKE %s"

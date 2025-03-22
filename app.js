@@ -57,21 +57,24 @@ document.getElementById("search-btn").addEventListener("click", function () {
 
       // 這裡可以根據返回的資料動態顯示結果
       const resultsDiv = document.getElementById("results");
-      if (data.find = 1) {
-        resultsDiv.innerHTML = "<ul>" + data.map(item => {
+      if (data.find === 1) {
+        resultsDiv.innerHTML = "<ul>" + data.data.map(item => {
           return `<li>
                       教室已被使用<br>
                       ${item.course_name} ${item.teacher_name} ${item.classroom} ${item.class_time}
                   </li>`;
         }).join("") + "</ul>";
-      } else if(data.find = 0) {
+      } else if(data.find === 0) {
         // 顯示該教室其他資料
-        resultsDiv.innerHTML = "<ul>" + data.map(item => {
-            return `<li>
-                      教室目前無人使用<br>
-                      ${item.course_name} ${item.teacher_name} ${item.classroom} ${item.class_time}
-                    </li>`;
-        }).join("") + "</ul>";
+        resultsDiv.innerHTML = `
+            <p>教室目前無人使用</p>
+            <p>本日使用時段</p>
+            <ul>
+                ${data.data.map(item => `
+                    <li>${item.course_name} ${item.teacher_name} ${item.classroom} ${item.class_time}</li>
+                `).join("")}
+            </ul>
+        `;
     }
   })
   .catch(error => {
