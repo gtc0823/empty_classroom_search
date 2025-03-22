@@ -1,13 +1,23 @@
 import time
+import mysql.connector
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+db = mysql.connector.connect(
+    host= "localhost",
+    user= "root",
+    password= "ryan0823",
+    database="nccu_classes"  # 資料庫名稱
+)
+cursor = db.cursor()
+
 # 啟動 WebDriver
 service = Service("chromedriver.exe")  
 driver = webdriver.Chrome(service=service)
+driver.maximize_window()
 driver.get('https://qrysub.nccu.edu.tw/')
 
 # 點擊查詢按鈕
@@ -46,16 +56,32 @@ while True:
 
               classroom_text = info.text.strip().replace("上課教室：", "").strip()
               column_texts[4] = classroom_text
-              print(column_texts)
+
+              # 構建 INSERT INTO 查詢
+              insert_query = """
+                  INSERT INTO classrooms (course_name, teacher_name, credit, class_time, classroom)
+                  VALUES (%s, %s, %s, %s, %s)
+              """
+              # 假設 column_texts 中的順序是：
+              # [course_name, teacher_name, credit, class_time, classroom]
+              data_to_insert = (column_texts[0], column_texts[1], column_texts[2], column_texts[3], column_texts[4])
+
+              # 執行 INSERT 查詢
+              cursor.execute(insert_query, data_to_insert)
+
+              # 提交更改到資料庫
+              db.commit()
 
               # 關閉彈出視窗
               close_button = driver.find_element(By.CSS_SELECTOR, "body > ngb-modal-window > div > div > div.modal-header > button")
               close_button.click()
+
   # 嘗試點擊「下一頁」按鈕
   try:
     next_button = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.CSS_SELECTOR, "button.mat-mdc-paginator-navigation-next"))
     )
+    print('success')
     
     next_button.click()
     time.sleep(0.3)  # 等待新頁面加載
@@ -65,7 +91,9 @@ while True:
     time.sleep(0.1)
 
   except Exception as e:
-    print("下一頁按鈕未找到:", e)
+    print("下一頁按鈕未找到，結束爬蟲", e)
     break
+
+
 # 關閉瀏覽器
 driver.quit()
