@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空教室查詢系統</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>空教室查詢系統</h1>
+        <div class="search-form">
+            <label for="weekday">星期：</label>
+            <select id="weekday">
+                <option value="1">星期一</option>
+                <option value="2">星期二</option>
+                <option value="3">星期三</option>
+                <option value="4">星期四</option>
+                <option value="5">星期五</option>
+                <option value="6">星期六</option>
+                <option value="7">星期日</option>
+            </select>
+
+            <label for="time">時間：</label>
+            <input type="time" id="time" min="06:00" max="20:00">
+
+            <label for="classroom">教室編碼：</label>
+            <input type="text" id="classroom" placeholder="可選">
+
+            <button id="search-btn">搜尋</button>
+        </div>
+
+        <div id="results"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
