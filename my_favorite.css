@@ -1,0 +1,74 @@
+/* 表格基本樣式 */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px 0;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* 表頭樣式 */
+caption {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 15px;
+  color: black;
+  background: lightblue
+  
+}
+
+/* 表頭單元格樣式 */
+th {
+  background-color: #f8f9fa;
+  color: #495057;
+  font-weight: 600;
+  padding: 12px 15px;
+  text-align: center;
+}
+
+/* 表格單元格樣式 */
+td {
+  padding: 12px 15px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+/* 奇數行背景色 */
+tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+/* 課程單元格樣式 */
+td[bgcolor] {
+  color: white;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 課程單元格懸停效果 */
+td[bgcolor]:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.9em;
+  }
+  
+  caption {
+    font-size: 1.2em;
+  }
+  
+  th, td {
+    padding: 8px 10px;
+  }
+}

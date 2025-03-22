@@ -8,7 +8,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>空教室查詢系統</h1>
+        <div class="header">
+            <h1>空教室查詢系統</h1>
+            <button class="button-container" id="favorite-list-btn">
+                查看我的最愛
+            </button>
+        </div>
+
         <div class="search-form">
             <label for="weekday">星期：</label>
             <select id="weekday">
@@ -27,7 +33,10 @@
             <label for="classroom">教室編碼：</label>
             <input type="text" id="classroom" placeholder="可選">
 
-            <button id="search-btn">搜尋</button>
+            <button id="search-btn">
+                <img src="icon/search.svg" alt="搜尋" id="search-icon">
+            </button>
+            
         </div>
 
         <div id="results"></div>

@@ -32,6 +32,7 @@ document.getElementById("search-btn").addEventListener("click", function () {
   const timeSlot = timeSlotMap.find(slot => timeValue >= slot.start && timeValue < slot.end)?.slot || "未知";
   const classroom = document.getElementById("classroom").value.trim();
 
+  let favorites = [];
 
   console.log("星期:", weekday);
   console.log("時間:", timeSlot);
@@ -69,15 +70,37 @@ document.getElementById("search-btn").addEventListener("click", function () {
         resultsDiv.innerHTML = `
             <p>教室目前無人使用</p>
             <p>本日使用時段</p>
+            <button id="favorite-btn">
+                <img src="icon/love.png" alt="加入最愛" id="favorite-icon">
+            </button>
             <ul>
                 ${data.data.map(item => `
                     <li>${item.course_name} ${item.teacher_name} ${item.classroom} ${item.class_time}</li>
                 `).join("")}
             </ul>
         `;
-    }
+
+        // 綁定愛心按鈕的點擊事件
+        document.getElementById("favorite-btn").addEventListener("click", function () {
+          // 假設你想收藏第一個課程資料
+          const item = data.data[0];  // 可以根據需要選擇具體的 item
+          
+          // 將資料推送到最愛陣列中
+          favorites.push({
+              classroom: item.classroom,
+              class_time: timeSlot
+          });
+          
+          console.log("已加入最愛:", favorites);  // 顯示已收藏的資料
+        });
+        }
   })
   .catch(error => {
       console.error("錯誤:", error);
   });
+});
+
+document.getElementById("favorite-list-btn").addEventListener("click", function() {
+  // 跳转到 my_favorite.html
+  window.location.href = "my_favorite.html";
 });

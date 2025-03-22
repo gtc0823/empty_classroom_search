@@ -29,12 +29,25 @@ body {
     transition: var(--transition);
 }
 
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
 h1 {
     text-align: center;
     color: var(--text-color);
     margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: 700;
+}
+
+.button-container {
+    position: absolute;
+    right: 0;
 }
 
 .search-form {
@@ -87,6 +100,7 @@ button:active {
 }
 
 #results {
+    position: relative;
     margin-top: 2rem;
     padding: 1.5rem;
     background-color: white;
@@ -120,6 +134,41 @@ button:active {
     margin: 0.5rem 0;
     color: var(--muted-color);
 }
+
+#search-btn {
+    background: lightblue;
+    border: none;
+    cursor: pointer;
+}
+#favorite-btn {
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+}
+
+#search-icon,#favorite-icon {
+    width: 40px;  /* 根據需要調整大小 */
+    height: 40px;
+}
+
+#favorite-list-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightpink;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#favorite-list-btn:hover {
+    background-color: lightpink;
+}
+
 
 @media (max-width: 768px) {
     .container {
