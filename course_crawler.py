@@ -13,7 +13,7 @@ search_button = driver.find_element(By.XPATH, '//button[contains(@class, "btn-pr
 search_button.click()
 
 # 等待數據載入
-time.sleep(3)
+time.sleep(0.3)
 
 # 找到表格 tbody
 bodies = driver.find_elements(By.XPATH, "//table/tbody")
@@ -31,14 +31,14 @@ for tbody in bodies:
             
             # 滾動到 row 可見位置，並略微往下調整以避免遮擋
             driver.execute_script("arguments[0].scrollIntoView({block: 'center'}); window.scrollBy(0, -50);", row)
-            time.sleep(1)  # 等待滾動完成
+            time.sleep(0.1)  # 等待滾動完成
 
             # 找到按鈕並點擊
             info_button = last_column.find_element(By.XPATH, ".//button[@data-target='#exampleModal_2']")
             info_button.click()
 
             # 等待資訊加載並獲取內容
-            time.sleep(1)
+            time.sleep(0.1)
             more_info = driver.find_element(By.CSS_SELECTOR, "body > ngb-modal-window > div > div > div.modal-body > div.modal-more-info")
             info = more_info.find_element(By.XPATH, './/p[4]')
             print(info.text.strip())
@@ -46,7 +46,6 @@ for tbody in bodies:
             # 關閉彈出視窗
             close_button = driver.find_element(By.CSS_SELECTOR, "body > ngb-modal-window > div > div > div.modal-header > button")
             close_button.click()
-            time.sleep(1)
 
 # 關閉瀏覽器
 driver.quit()
