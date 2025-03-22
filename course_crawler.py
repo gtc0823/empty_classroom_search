@@ -24,7 +24,6 @@ for tbody in bodies:
     for row in rows:
         columns = row.find_elements(By.XPATH, ".//td[4] | .//td[5] | .//td[6] | .//td[7] | .//td[13]")
         column_texts = [column.text.strip() for column in columns]
-        print(column_texts)
 
         if len(columns) > 0:
             last_column = columns[-1]  # 取得最後一個 td
@@ -41,7 +40,10 @@ for tbody in bodies:
             time.sleep(0.1)
             more_info = driver.find_element(By.CSS_SELECTOR, "body > ngb-modal-window > div > div > div.modal-body > div.modal-more-info")
             info = more_info.find_element(By.XPATH, './/p[4]')
-            print(info.text.strip())
+
+            classroom_text = info.text.strip().replace("上課教室：", "").strip()
+            column_texts[4] = classroom_text
+            print(column_texts)
 
             # 關閉彈出視窗
             close_button = driver.find_element(By.CSS_SELECTOR, "body > ngb-modal-window > div > div > div.modal-header > button")
