@@ -30,11 +30,11 @@ while True:
 
           if len(columns) > 0:
               last_column = columns[-1]  # 取得最後一個 td
-              
-              # 滾動到 row 可見位置，並略微往下調整以避免遮擋
+
+              # 如果頁面還沒到底，則滾動到 row 可見位置
               driver.execute_script("arguments[0].scrollIntoView({block: 'center'}); window.scrollBy(0, -70);", row)
               time.sleep(0.1)  # 等待滾動完成
-
+              
               # 找到按鈕並點擊
               info_button = last_column.find_element(By.XPATH, ".//button[@data-target='#exampleModal_2']")
               info_button.click()
