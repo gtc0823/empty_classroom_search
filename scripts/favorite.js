@@ -56,3 +56,8 @@ window.onload = () => {
       });
   }
 };
+
+document.getElementById("back-btn").addEventListener("click", function() {
+  // 跳转到 my_favorite.html
+  window.location.href = "index.html";  
+});

@@ -33,6 +33,15 @@ document.getElementById("search-btn").addEventListener("click", function () {
   const timeSlot = timeSlotMap.find(slot => timeValue >= slot.start && timeValue < slot.end)?.slot || "未知";
   const classroom = document.getElementById("classroom").value.trim();
 
+  if (!weekdayValue || !timeValue || !classroom) {
+    Swal.fire({
+        icon: 'warning',
+        title: '錯誤',
+        text: '請填寫所有必填欄位！'
+    });
+    return; // 停止後續程式執行
+  }
+
   let favorites = [];
 
   console.log("星期:", weekday);
@@ -70,7 +79,7 @@ document.getElementById("search-btn").addEventListener("click", function () {
         // 顯示該教室其他資料
         resultsDiv.innerHTML = `
             <p>教室目前無人使用</p>
-            <p>本日使用時段</p>
+            <p>本日使用時段:</p>
             <button id="favorite-btn">
                 <img src="icon/love.png" alt="加入最愛" id="favorite-icon">
             </button>

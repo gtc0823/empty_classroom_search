@@ -14,7 +14,6 @@ table {
   overflow: hidden;
 }
 
-
 #my-favorite-table {
   width: 100%;
   table-layout: fixed; /* 固定表格列寬，防止自動調整 */
@@ -61,12 +60,36 @@ button:active {
 
 /* 表頭樣式 */
 caption {
+  justify-content: center;
+  align-items: center;
+  position: relative; /* 使得可以絕對定位按鈕 */
   font-size: 1.5em;
-  font-weight: bold;
   padding: 15px;
+  font-weight: bold;
   color: black;
   background: rgb(152, 214, 235)
-  
+}
+
+/* 設置返回按鈕的樣式，並將其定位在最左邊 */
+#back-btn {
+  position: absolute;
+  left: 20px; /* 距離左邊距離 */
+  top: 50%;
+  transform: translateY(-50%); /* 垂直居中 */
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #f5f5dc;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#back-btn:hover {
+  background-color: #000000;
+  color: white;
+  transition: all 0.5s ease;
+
 }
 
 /* 表頭單元格樣式 */
