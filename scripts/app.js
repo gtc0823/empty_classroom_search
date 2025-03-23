@@ -23,7 +23,8 @@ document.getElementById("search-btn").addEventListener("click", function () {
     { start: "16:00", end: "17:00", slot: "7" },
     { start: "17:00", end: "18:00", slot: "8" },
     { start: "18:00", end: "19:00", slot: "E" },
-    { start: "19:00", end: "20:00", slot: "F" }
+    { start: "19:00", end: "20:00", slot: "F" },
+    { start: "20:00", end: "21:00", slot: "G" }
   ];
 
   const weekdayValue = document.getElementById("weekday").value;
@@ -82,18 +83,47 @@ document.getElementById("search-btn").addEventListener("click", function () {
 
         // 綁定愛心按鈕的點擊事件
         document.getElementById("favorite-btn").addEventListener("click", function () {
-          // 假設你想收藏第一個課程資料
-          const item = data.data[0];  // 可以根據需要選擇具體的 item
+          const timeValue = document.getElementById("time").value.split(":").reduce((h, m) => +h + m / 60); // 轉換成小時小數
+
+          if (timeValue >= 4 && timeValue < 6) {
+            alert("多睡一點，別再卷了!!!");
+          } else if (timeValue >= 21 || timeValue < 4) {
+            alert("快回家睡覺，你的肝在哀號!!!");
+          }
           
           // 將資料推送到最愛陣列中
           favorites.push({
-              classroom: item.classroom,
-              class_time: timeSlot
+            weekday: weekday,
+            class_time: timeSlot,
+            classroom: classroom 
           });
           
           console.log("已加入最愛:", favorites);  // 顯示已收藏的資料
+
+          // 在my_favorite.html中插入按鈕
+          console.log("weekdayValue:", weekdayValue);
+          console.log("timeSlot:", timeSlot);
+          const weekdayIndex = Object.keys(weekdayMap).indexOf(weekdayValue) + 1;
+          // 根據timeSlotMap的順序重新計算行索引
+          const timeSlotOrder = ["A", "B", "1", "2", "3", "4", "C", "D", "5", "6", "7", "8", "E", "F", "G"];
+          const timeSlotIndex = timeSlotOrder.indexOf(timeSlot);
+          console.log("weekdayIndex:", weekdayIndex);
+          console.log("timeSlotIndex:", timeSlotIndex);
+          const targetCell = document.querySelector(`#cell-${weekdayIndex}-${timeSlot}`);
+          console.log("targetCell:", targetCell);
+          
+          if (targetCell) {
+            const button = document.createElement('button');
+            button.style.height = '60px';
+            button.style.width = '120px';
+            button.textContent = classroom;
+            targetCell.appendChild(button);
+            console.log("Button inserted successfully");
+          } else {
+            console.error("Target cell not found");
+          }
         });
-        }
+      }
   })
   .catch(error => {
       console.error("錯誤:", error);

@@ -1,77 +1,128 @@
+<!DOCTYPE html>
+<html>
 <head>
-  <link rel="stylesheet" href="my_favorite.css">
+    <link rel="stylesheet" href="styles/my_favorite.css">
 </head>
 <body>
-  <table>
-      <caption>我的空教室</caption>
-      
-      <tr height="10" align="center">
-          <td> </td>
-          <td >周一</td>
-          <td>周二</td>
-          <td>周三</td>
-          <td>周四</td>
-          <td>周五</td>
-      </tr>
-      <tr height="60" align="center">
-          <td width="30"> 1</td>
-          <td width="120" rowspan="2" bgcolor="ffcc99"></td>
-          <td width="120" rowspan="2" bgcolor="99ccff"></td>
-          <td width="120" rowspan="2" bgcolor="ccff00">概率论与数理统计[博文楼107]</td>
-          <td width="120" rowspan="2"bgcolor="ff6666">大学英语B4[博文楼302]</td>
-          <td width="120" rowspan="2"></td>
-      </tr>
-      <tr height="60" align="center">
-          <td width="30">2</td>
-      </tr>
-      <tr height="60" align="center">
-          <td width="30">3</td>
-          <td width="120" rowspan="2" bgcolor="ccff00">概率论与数理统计[博文楼401]</td>
-          <td width="120" rowspan="2"></td>
-          <td width="120" rowspan="2"></td>
-          <td width="120" rowspan="2" bgcolor="87ceff">大学英语B4[博文楼302]</td>
-          <td width="120" rowspan="2" bgcolor="99ccff">毛泽东思想和中国特色社会主义理论体系概论[博文楼103]</td>
-      </tr>
-      <tr height="60" align="center">
-          <td width="30">4</td>
-      </tr>
-      <tr height="60" align="center">
-          <td width="30">C</td>
-          <td width="120" rowspan="2"> </td>
-          <td width="120" rowspan="2" bgcolor="ffcc99">虚拟现实脚本设计[博雅楼B502]</td>
-          <td width="120" rowspan="4" bgcolor="33cc99">融媒体内容设计[求实楼206]</td>
-          <td width="120" rowspan="2"></td>
-          <td width="120" rowspan="4" bgcolor="6699ff">web前端开发技术[求实楼409]</td>
-      </tr>
-      <tr height="60" align="center">
-          <td width="30">D</td>
-      </tr>
-      <tr height="60" align="center">
-          <td width="30">5</td>
-          <td width="120" rowspan="2" bgcolor="eea2ad">体育4 </td>
-          <td width="120" rowspan="2" bgcolor="cd919e">形势与政策计[博文楼404]</td>
-          <td width="120" rowspan="2"></td>
-      </tr>
-      <tr height="60" align="center">
-          <td width="30">6</td>
-      </tr>
-      <tr height="60" align="center">
-              <td width="30">7</td>
-              <td width="120" rowspan="2"> </td>
-              <td width="120" rowspan="2"></td>
-              <td width="120" rowspan="4"></td>
-              <td width="120" rowspan="2"></td>
-              <td width="120" rowspan="2" bgcolor="c6e2ff">数学建模[博文楼303]</td>
-      </tr>
-      <tr height="60" align="center">
-              <td width="30">8</td>  
-      </tr>
-        <tr height="60" align="center">
+    <table id="my-favorite-table">
+    <caption>我的空教室</caption>
+
+    <tr height="10" align="center">
+        <td> </td>
+        <td>周一</td>
+        <td>周二</td>
+        <td>周三</td>
+        <td>周四</td>
+        <td>周五</td>
+    </tr>
+
+    <tr height="60" align="center">
+        <td width="30">1</td>
+        <td id="cell-1-1" width="120" rowspan="1"></td>
+        <td id="cell-2-1" width="120" rowspan="1"></td>
+        <td id="cell-3-1" width="120" rowspan="1"></td>
+        <td id="cell-4-1" width="120" rowspan="1"></td>
+        <td id="cell-5-1" width="120" rowspan="1"></td>
+    </tr>
+    <tr height="60" align="center">
+        <td width="30">2</td>
+        <td id="cell-1-2" width="120" rowspan="1"></td>
+        <td id="cell-2-2" width="120" rowspan="1"></td>
+        <td id="cell-3-2" width="120" rowspan="1"></td>
+        <td id="cell-4-2" width="120" rowspan="1"></td>
+        <td id="cell-5-2" width="120" rowspan="1"></td>
+    </tr>
+    <tr height="60" align="center">
+        <td width="30">3</td>
+        <td id="cell-1-3" width="120" rowspan="1"></td>
+        <td id="cell-2-3" width="120" rowspan="1"></td>
+        <td id="cell-3-3" width="120" rowspan="1"></td>
+        <td id="cell-4-3" width="120" rowspan="1"></td>
+        <td id="cell-5-3" width="120" rowspan="1"></td>
+    </tr>
+    <tr height="60" align="center">
+        <td width="30">4</td>
+        <td id="cell-1-4" width="120" rowspan="1"></td>
+        <td id="cell-2-4" width="120" rowspan="1"></td>
+        <td id="cell-3-4" width="120" rowspan="1"></td>
+        <td id="cell-4-4" width="120" rowspan="1"></td>
+        <td id="cell-5-4" width="120" rowspan="1"></td>
+    </tr>
+    <tr height="60" align="center">
+        <td width="30">C</td>
+        <td id="cell-1-C" width="120" rowspan="1"></td>
+        <td id="cell-2-C" width="120" rowspan="1"></td>
+        <td id="cell-3-C" width="120" rowspan="1"></td>
+        <td id="cell-4-C" width="120" rowspan="1"></td>
+        <td id="cell-5-C" width="120" rowspan="1"></td>
+    </tr>
+    <tr height="60" align="center">
+        <td width="30">D</td>
+        <td id="cell-1-D" width="120" rowspan="1"></td>
+        <td id="cell-2-D" width="120" rowspan="1"></td>
+        <td id="cell-3-D" width="120" rowspan="1"></td>
+        <td id="cell-4-D" width="120" rowspan="1"></td>
+        <td id="cell-5-D" width="120" rowspan="1"></td>
+    </tr>
+    <tr height="60" align="center">
+        <td width="30">5</td>
+        <td id="cell-1-5" width="120" rowspan="1"></td>
+        <td id="cell-2-5" width="120" rowspan="1"></td>
+        <td id="cell-3-5" width="120" rowspan="1"></td>
+        <td id="cell-4-5" width="120" rowspan="1"></td>
+        <td id="cell-5-5" width="120" rowspan="1"></td>
+    </tr>
+    <tr height="60" align="center">
+        <td width="30">6</td>
+        <td id="cell-1-6" width="120" rowspan="1"></td>
+        <td id="cell-2-6" width="120" rowspan="1"></td>
+        <td id="cell-3-6" width="120" rowspan="1"></td>
+        <td id="cell-4-6" width="120" rowspan="1"></td>
+        <td id="cell-5-6" width="120" rowspan="1"></td>
+    </tr>
+    <tr height="60" align="center">
+        <td width="30">7</td>
+        <td id="cell-1-7" width="120" rowspan="1"></td>
+        <td id="cell-2-7" width="120" rowspan="1"></td>
+        <td id="cell-3-7" width="120" rowspan="1"></td>
+        <td id="cell-4-7" width="120" rowspan="1"></td>
+        <td id="cell-5-7" width="120" rowspan="1"></td>
+    </tr>
+    <tr height="60" align="center">
+        <td width="30">8</td>  
+        <td id="cell-1-8" width="120" rowspan="1"></td>
+        <td id="cell-2-8" width="120" rowspan="1"></td>
+        <td id="cell-3-8" width="120" rowspan="1"></td>
+        <td id="cell-4-8" width="120" rowspan="1"></td>
+        <td id="cell-5-8" width="120" rowspan="1"></td>
+    </tr>
+    <tr height="60" align="center">
         <td width="30">E</td>  
-        </tr>
-        <tr height="60" align="center">
-            <td width="30">F</td>  
-            
-        </tr>
-  </table>
+        <td id="cell-1-E" width="120" rowspan="1"></td>
+        <td id="cell-2-E" width="120" rowspan="1"></td>
+        <td id="cell-3-E" width="120" rowspan="1"></td>
+        <td id="cell-4-E" width="120" rowspan="1"></td>
+        <td id="cell-5-E" width="120" rowspan="1"></td>
+    </tr>
+    <tr height="60" align="center">
+        <td width="30">F</td>  
+        <td id="cell-1-F" width="120" rowspan="1"></td>
+        <td id="cell-2-F" width="120" rowspan="1"></td>
+        <td id="cell-3-F" width="120" rowspan="1"></td>
+        <td id="cell-4-F" width="120" rowspan="1"></td>
+        <td id="cell-5-F" width="120" rowspan="1"></td>
+    </tr>
+    <tr height="60" align="center">
+        <td width="30">G</td>  
+        <td id="cell-1-G" width="120" rowspan="1"></td>
+        <td id="cell-2-G" width="120" rowspan="1"></td>
+        <td id="cell-3-G" width="120" rowspan="1"></td>
+        <td id="cell-4-G" width="120" rowspan="1"></td>
+        <td id="cell-5-G" width="120" rowspan="1"></td>
+    </tr>
+
+    </table>
+
+  <script src="scripts/favorite.js"></script>
 </body>
+</html>
