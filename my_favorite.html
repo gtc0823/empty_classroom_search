@@ -2,21 +2,23 @@
 <html>
 <head>
     <link rel="stylesheet" href="styles/my_favorite.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css">
+
 </head>
 <body>
     <table id="my-favorite-table">
     <caption>我的空教室</caption>
 
-    <tr height="10" align="center">
-        <td> </td>
-        <td>周一</td>
-        <td>周二</td>
-        <td>周三</td>
-        <td>周四</td>
-        <td>周五</td>
+    <tr height="10" align="center" class="weekday">
+        <th> </th>
+        <th>周一</th>
+        <th>周二</th>
+        <th>周三</th>
+        <th>周四</th>
+        <th>周五</th>
     </tr>
     <tr height="60" align="center">
-        <td width="30">A</td>
+        <td width="30">6:00~7:00</td>
         <td id="cell-一A" width="120" rowspan="1"></td>
         <td id="cell-二A" width="120" rowspan="1"></td>
         <td id="cell-三A" width="120" rowspan="1"></td>
@@ -24,7 +26,7 @@
         <td id="cell-五A" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">B</td>
+        <td width="30">7:00~8:00</td>
         <td id="cell-一B" width="120" rowspan="1"></td>
         <td id="cell-二B" width="120" rowspan="1"></td>
         <td id="cell-三B" width="120" rowspan="1"></td>
@@ -32,7 +34,7 @@
         <td id="cell-五B" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">1</td>
+        <td width="30">8:00~9:00</td>
         <td id="cell-一1" width="120" rowspan="1"></td>
         <td id="cell-二1" width="120" rowspan="1"></td>
         <td id="cell-三1" width="120" rowspan="1"></td>
@@ -40,7 +42,7 @@
         <td id="cell-五1" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">2</td>
+        <td width="30">9:00~10:00</td>
         <td id="cell-一2" width="120" rowspan="1"></td>
         <td id="cell-二2" width="120" rowspan="1"></td>
         <td id="cell-三2" width="120" rowspan="1"></td>
@@ -48,7 +50,7 @@
         <td id="cell-五2" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">3</td>
+        <td width="30">10:00~11:00</td>
         <td id="cell-一3" width="120" rowspan="1"></td>
         <td id="cell-二3" width="120" rowspan="1"></td>
         <td id="cell-三3" width="120" rowspan="1"></td>
@@ -56,7 +58,7 @@
         <td id="cell-五3" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">4</td>
+        <td width="30">11:00~12:00</td>
         <td id="cell-一4" width="120" rowspan="1"></td>
         <td id="cell-二4" width="120" rowspan="1"></td>
         <td id="cell-三4" width="120" rowspan="1"></td>
@@ -64,7 +66,7 @@
         <td id="cell-五4" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">C</td>
+        <td width="30">12:00~13:00</td>
         <td id="cell-一C" width="120" rowspan="1"></td>
         <td id="cell-二C" width="120" rowspan="1"></td>
         <td id="cell-三C" width="120" rowspan="1"></td>
@@ -72,7 +74,7 @@
         <td id="cell-五C" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">D</td>
+        <td width="30">13:00~14:00</td>
         <td id="cell-一D" width="120" rowspan="1"></td>
         <td id="cell-二D" width="120" rowspan="1"></td>
         <td id="cell-三D" width="120" rowspan="1"></td>
@@ -80,7 +82,7 @@
         <td id="cell-五D" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">5</td>
+        <td width="30">14:00~15:00</td>
         <td id="cell-一5" width="120" rowspan="1"></td>
         <td id="cell-二5" width="120" rowspan="1"></td>
         <td id="cell-三5" width="120" rowspan="1"></td>
@@ -88,7 +90,7 @@
         <td id="cell-五5" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">6</td>
+        <td width="30">15:00~16:00</td>
         <td id="cell-一6" width="120" rowspan="1"></td>
         <td id="cell-二6" width="120" rowspan="1"></td>
         <td id="cell-三6" width="120" rowspan="1"></td>
@@ -96,7 +98,7 @@
         <td id="cell-五6" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">7</td>
+        <td width="30">16:00~17:00</td>
         <td id="cell-一7" width="120" rowspan="1"></td>
         <td id="cell-二7" width="120" rowspan="1"></td>
         <td id="cell-三7" width="120" rowspan="1"></td>
@@ -104,7 +106,7 @@
         <td id="cell-五7" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">8</td>  
+        <td width="30">17:00~18:00</td>  
         <td id="cell-一8" width="120" rowspan="1"></td>
         <td id="cell-二8" width="120" rowspan="1"></td>
         <td id="cell-三8" width="120" rowspan="1"></td>
@@ -112,7 +114,7 @@
         <td id="cell-五8" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">E</td>  
+        <td width="30">18:00~19:00</td>  
         <td id="cell-一E" width="120" rowspan="1"></td>
         <td id="cell-二E" width="120" rowspan="1"></td>
         <td id="cell-三E" width="120" rowspan="1"></td>
@@ -120,7 +122,7 @@
         <td id="cell-五E" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">F</td>  
+        <td width="30">19:00~20:00</td>  
         <td id="cell-一F" width="120" rowspan="1"></td>
         <td id="cell-二F" width="120" rowspan="1"></td>
         <td id="cell-三F" width="120" rowspan="1"></td>
@@ -128,7 +130,7 @@
         <td id="cell-五F" width="120" rowspan="1"></td>
     </tr>
     <tr height="60" align="center">
-        <td width="30">G</td>  
+        <td width="30">20:00~21:00</td>  
         <td id="cell-一G" width="120" rowspan="1"></td>
         <td id="cell-二G" width="120" rowspan="1"></td>
         <td id="cell-三G" width="120" rowspan="1"></td>
@@ -137,6 +139,8 @@
     </tr>
 
     </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.js"></script>
 
   <script src="scripts/favorite.js"></script>
 </body>

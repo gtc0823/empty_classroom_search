@@ -1,4 +1,8 @@
 /* 表格基本樣式 */
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
 table {
   width: 100%;
   border-collapse: separate;
@@ -9,6 +13,7 @@ table {
   border-radius: 10px;
   overflow: hidden;
 }
+
 
 #my-favorite-table {
   width: 100%;
@@ -24,20 +29,33 @@ table {
   padding: 0; /* 移除內邊距 */
 }
 
-button {
+.custom-button {
   width: 100%; /* 使按鈕填滿整個格子 */
   height: 100%; /* 使按鈕填滿整個格子 */
   box-sizing: border-box; /* 保證padding和border不影響元素尺寸 */
-  border: 0;
+  border: none;
   cursor: pointer;
+  background: lightpink;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 
+    2px 2px 4px rgba(0,0,0,0.1),
+    -2px -2px 4px rgba(255,255,255,0.5);
 }
+
 button:hover {
-  background-color: lightblue;
-  transform: translateY(-1px);
+  background: #ffb6c1;
+  box-shadow: 
+    4px 4px 8px rgba(0,0,0,0.2),
+    -4px -4px 8px rgba(255,255,255,0.6);
+  transform: translate(-2px, -2px);
+  transition: all 0.2s ease;
 }
 
 button:active {
-  transform: translateY(0);
+  background: #f68697;
+  transform: scale(0.98);
 }
 
 
@@ -47,7 +65,7 @@ caption {
   font-weight: bold;
   padding: 15px;
   color: black;
-  background: lightblue
+  background: rgb(152, 214, 235)
   
 }
 
@@ -55,9 +73,12 @@ caption {
 th {
   background-color: #f8f9fa;
   color: #495057;
-  font-weight: 600;
+  font-weight: 700;
   padding: 12px 15px;
   text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
 }
 
 /* 表格單元格樣式 */
@@ -103,3 +124,5 @@ td[bgcolor]:hover {
     padding: 8px 10px;
   }
 }
+
+
