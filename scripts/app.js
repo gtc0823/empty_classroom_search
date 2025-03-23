@@ -84,7 +84,7 @@ document.getElementById("search-btn").addEventListener("click", function () {
         // 綁定愛心按鈕的點擊事件
         document.getElementById("favorite-btn").addEventListener("click", function () {
           const timeValue = document.getElementById("time").value.split(":").reduce((h, m) => +h + m / 60); // 轉換成小時小數
-
+        
           if (timeValue >= 4 && timeValue < 6) {
             alert("多睡一點，別再卷了!!!");
           } else if (timeValue >= 21 || timeValue < 4) {
@@ -99,29 +99,11 @@ document.getElementById("search-btn").addEventListener("click", function () {
           });
           
           console.log("已加入最愛:", favorites);  // 顯示已收藏的資料
-
-          // 在my_favorite.html中插入按鈕
-          console.log("weekdayValue:", weekdayValue);
-          console.log("timeSlot:", timeSlot);
-          const weekdayIndex = Object.keys(weekdayMap).indexOf(weekdayValue) + 1;
-          // 根據timeSlotMap的順序重新計算行索引
-          const timeSlotOrder = ["A", "B", "1", "2", "3", "4", "C", "D", "5", "6", "7", "8", "E", "F", "G"];
-          const timeSlotIndex = timeSlotOrder.indexOf(timeSlot);
-          console.log("weekdayIndex:", weekdayIndex);
-          console.log("timeSlotIndex:", timeSlotIndex);
-          const targetCell = document.querySelector(`#cell-${weekdayIndex}-${timeSlot}`);
-          console.log("targetCell:", targetCell);
-          
-          if (targetCell) {
-            const button = document.createElement('button');
-            button.style.height = '60px';
-            button.style.width = '120px';
-            button.textContent = classroom;
-            targetCell.appendChild(button);
-            console.log("Button inserted successfully");
-          } else {
-            console.error("Target cell not found");
-          }
+        
+          favorites.forEach(favorite => {
+            localStorage.setItem("cellData", `cell-${favorite.weekday}${favorite.class_time}`);
+            console.log(localStorage)
+          });  
         });
       }
   })

@@ -10,6 +10,37 @@ table {
   overflow: hidden;
 }
 
+#my-favorite-table {
+  width: 100%;
+  table-layout: fixed; /* 固定表格列寬，防止自動調整 */
+}
+
+#my-favorite-table td {
+  width: 120px;
+  height: 60px;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden; /* 隱藏超過單元格的內容 */
+  padding: 0; /* 移除內邊距 */
+}
+
+button {
+  width: 100%; /* 使按鈕填滿整個格子 */
+  height: 100%; /* 使按鈕填滿整個格子 */
+  box-sizing: border-box; /* 保證padding和border不影響元素尺寸 */
+  border: 0;
+  cursor: pointer;
+}
+button:hover {
+  background-color: lightblue;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+
 /* 表頭樣式 */
 caption {
   font-size: 1.5em;
