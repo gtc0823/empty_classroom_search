@@ -92,6 +92,8 @@ document.getElementById("search-btn").addEventListener("click", function () {
 
         // 綁定愛心按鈕的點擊事件
         document.getElementById("favorite-btn").addEventListener("click", function () {
+          const timeValue = document.getElementById("time").value.split(":").reduce((h, m) => +h + m / 60); // 轉換成小時小數
+
           Swal.fire({
             title: '加入我的最愛?',
             text: "這個動作無法恢復!",
@@ -104,43 +106,49 @@ document.getElementById("search-btn").addEventListener("click", function () {
           }).then((result) => {
             console.log(result)
             if(result.isConfirmed){
-              Swal.fire({
+              if (timeValue >= 4 && timeValue < 6) {
+                Swal.fire({
+                  icon: 'error',
+                  title: '別在卷了啦',
+                  text: '請查詢其他時段',
+                })
+              } else if (timeValue >= 21 || timeValue < 4) {
+                Swal.fire({
+                  icon: 'error',
+                  title: '快回家睡覺，你的肝在哀號!!!',
+                  text: '請查詢其他時段',
+                })
+              }
+              else{
+                Swal.fire({
                   icon: 'success',
                   title: '成功加入',
                   text: '你可以繼續查詢',
-              })
-              const timeValue = document.getElementById("time").value.split(":").reduce((h, m) => +h + m / 60); // 轉換成小時小數
-      
-              if (timeValue >= 4 && timeValue < 6) {
-                alert("多睡一點，別再卷了!!!");
-              } else if (timeValue >= 21 || timeValue < 4) {
-                alert("快回家睡覺，你的肝在哀號!!!");
+                })
+              
+                // 將資料推送到最愛陣列中
+                favorites.push({
+                  class_time: weekday+timeSlot,
+                  classroom: classroom 
+                });
+
+                console.log("已加入最愛:", favorites);  // 顯示已收藏的資料
+
+                favorites.forEach(favorite => {
+                  // 讀取已有的資料，若沒有資料則設為空陣列
+                  let storedData = JSON.parse(localStorage.getItem("favorites")) || [];
+
+                  // 將新資料添加到陣列中
+                  storedData.push(favorite);
+
+                  // 將陣列轉換回 JSON 並儲存回 localStorage
+                  localStorage.setItem("favorites", JSON.stringify(storedData));
+
+                  // 查看 localStorage
+                  console.log(localStorage);
+                });
               }
-
-              // 將資料推送到最愛陣列中
-              favorites.push({
-                class_time: weekday+timeSlot,
-                classroom: classroom 
-              });
-
-              console.log("已加入最愛:", favorites);  // 顯示已收藏的資料
-
-              favorites.forEach(favorite => {
-                // 讀取已有的資料，若沒有資料則設為空陣列
-                let storedData = JSON.parse(localStorage.getItem("favorites")) || [];
-
-                // 將新資料添加到陣列中
-                storedData.push(favorite);
-
-                // 將陣列轉換回 JSON 並儲存回 localStorage
-                localStorage.setItem("favorites", JSON.stringify(storedData));
-
-                // 查看 localStorage
-                console.log(localStorage);
-              });
             }
-
-            
           })
         });
       }
